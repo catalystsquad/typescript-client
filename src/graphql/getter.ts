@@ -223,7 +223,7 @@ export default class GraphQLGetter extends CommandBase {
     if (this.errors.length > 0) {
       return Promise.reject(new Error('invalid usage: ' + this.errors.join(', ')));
     }
-    const queryString = this.generateQueryString()
+    const queryString = this.generateQueryString();
     return this.client.query(queryString);
   };
 
@@ -311,6 +311,6 @@ export default class GraphQLGetter extends CommandBase {
       params = `(${args.join(',')})`;
     }
 
-    return `{Get{${this.className}${params}{${this.fields}}}}`
-  }
+    return `{Get{${this.className}${params}{${this.fields}}}}`;
+  };
 }
